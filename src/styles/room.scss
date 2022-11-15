@@ -1,0 +1,130 @@
+$border-color-active: #d0d0d0;
+$border-color-inactive: #bcd4f3;
+$background-color-active: #bcd4f3;
+$background-color-inactive: #c9d3e0;
+
+$color-white: white;
+
+#room-wrapper {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+
+  #room-container {
+    display: inherit;
+    gap: 1em;
+
+    .room {
+      display: inherit;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: background-color 300ms;
+
+      &:nth-child(1) {
+        .room-title {
+          input {
+            display: none;
+          }
+        }
+      }
+
+      &[data-selected="true"] {
+        border: 3px solid $border-color-active;
+        background-color: $color-white;
+
+        .room-title {
+          background-color: $border-color-active;
+        }
+      }
+
+      &[data-selected="false"] {
+        border: 3px solid $border-color-inactive;
+        background-color: $background-color-inactive;
+
+        select {
+          opacity: 0.6;
+          pointer-events: none;
+          user-select: none;
+        }
+      }
+
+      .room-title {
+        display: inherit;
+        gap: 0.5em;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 0.5em 0.5em;
+
+        input {
+          cursor: pointer;
+        }
+      }
+
+      .room-details {
+        display: inherit;
+        gap: 1em;
+        padding: 0.5em;
+
+        .adult,
+        .children {
+          display: inherit;
+          flex-direction: column;
+          text-align: center;
+          gap: 0.5em;
+
+          select {
+            outline: none;
+          }
+
+          span:nth-child(2) {
+            color: gray;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+
+  #submit {
+    display: inherit;
+    align-self: center;
+    width: auto;
+    cursor: pointer;
+    padding: 0.6em 1em;
+    color: $color-white;
+    background-color: rgb(87, 141, 208);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    transition: background-color 200ms;
+
+    &:hover {
+      background-color: rgb(74, 118, 173);
+    }
+
+    &:active {
+      background-color: rgb(55, 88, 128);
+    }
+  }
+
+  #alert {
+    color: green;
+    text-align: center;
+    transition: 300ms;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  #room-wrapper {
+    #room-container {
+      display: inherit;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
