@@ -19,3 +19,9 @@ This project was made using REACTjs, SCSS and JavaScript.
 ```bash
     $ npm start
 ```
+
+##### 3. Run test
+
+```bash
+    $ npm test
+```

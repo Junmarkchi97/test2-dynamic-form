@@ -3,7 +3,7 @@ import Rooms from "./component/room";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="app-container">
       <Rooms />
     </div>
   );
